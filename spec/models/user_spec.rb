@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
-  
-  
+ 
   describe 'associations' do
     it { is_expected.to have_many(:accounts) }
   end
@@ -18,19 +16,17 @@ RSpec.describe User, type: :model do
       it { is_expected.to validate_length_of(:name).is_at_most(250) }
     end
 
-    context 'uniqueness' do
-      it { is_expected.to validate_uniqueness_of(:email) }
-    end
   end
 
-  describe 'create user' do
-    
+  describe 'create' do
+
     it "is valid with valid attributes" do
-      user = FactoryBot.create(:user, email:'teste@teste.com')
+      user = FactoryBot.create(:user)
       expect(user).to be_valid
     end
 
-    it "is not create user" do
+    it "is not valid" do
+      FactoryBot.create(:user)
       new_user = FactoryBot.build(:user, email: 'email@email.com', name: 'Test')
       expect(new_user).to_not be_valid
     end

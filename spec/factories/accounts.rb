@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :account do
-    user_id { 1 }
-    current_balance { "9.99" }
+    association :user
+    
+    description { "Test" }
+    current_balance { Faker::Number.decimal(2, 3) }
   end
 end

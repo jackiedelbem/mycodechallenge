@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_03_13_144412) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.string "description", null: false
     t.decimal "current_balance", precision: 64, scale: 4, default: "0.0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
