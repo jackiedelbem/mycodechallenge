@@ -71,3 +71,5 @@ Run App:
     rails s
 
 # Informações adicionais
+
+- Para os teste utilizado o [rspec](https://github.com/rspec/rspec-rails)
