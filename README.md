@@ -84,8 +84,12 @@ Visualizar rotas disponíveis
 
 Exemplos de buscas:
 
-- http://localhost:3000/api/v1/accounts - Lista todas as contas cadastradas
-- http://localhost:3000/api/v1/accounts/:id - Apresenta dados da conta (by id) **Atende ao requisito funcional - Consultar Saldo**
+- http://localhost:3000/api/v1/accounts - GET Lista todas as contas cadastradas
+- http://localhost:3000/api/v1/accounts/:id - GET Apresenta dados da conta (by id) **Atende ao requisito funcional - Consultar Saldo**
+- http://localhost:3000/api/v1/operations/transfer - POST Realiza transferência entre duas contas **Atende ao requisito funcional - Transferir dinheiro**
+  - Parâmetro source_account_id: conta de origem
+  - Parâmetro destination_account_id: conta de destino
+  - Parâmetro amount: valor da transferência
 
 
 # Informações adicionais
