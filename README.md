@@ -1,24 +1,73 @@
-# README
+# Code Challenge - Backend - Bank Accounting
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Criar um sistema que gerenciar contas bancárias de clientes, permitindo fazer transferências de um cliente para outro e expor o saldo atual da conta, sempre em reais.
 
-Things you may want to cover:
 
-* Ruby version
+## Requisitos não funcionais 
 
-* System dependencies
+ 1. O sistema deve expor uma API via HTTP 
+ 2. A API deve possuir algum mecanismo de autenticação para identificar o cliente que está fazendo as requisições 
+ 3.  Os dados devem ser armazenados em um banco PostgreSQL 
+ 4. Você deve usar Ruby ou Elixir para implementar este projeto
+ 5. O código deve ser versionado usando git 
+ 6. O repositório deve conter um README documentando como o sistema pode ser usado e como outra pessoa pode contribuir com o código, similar a um projeto Open Source
 
-* Configuration
+## Fluxos implementados
+ - Transferir dinheiro 
+-  Consultar saldo
 
-* Database creation
+#  Summary
 
-* Database initialization
+Utilizado Ruby on Rails para implementação do desafio. Para a solução utilizamos dois modelos `User` e` BankAccount`.
+Relacionamentos:
+-  **user**  has_many **bank_account**
+-  **bank_account** belongs_to **user**
 
-* How to run the test suite
+## Init Database
 
-* Services (job queues, cache servers, search engines, etc.)
+Para este desafio foi utilizado o BD - Postegresql. Install PostgreSQL
+First, update apt-get:
 
-* Deployment instructions
+    sudo apt-get update
+    
+Then install PostgreSQL and its development libraries:
 
-* ...
+    sudo apt-get install postgresql postgresql-contrib libpq-dev
+
+## Running the Tests
+
+Instale a gem:
+
+    bundle install
+
+Crie as bases de dados para a aplicação - `development`  and  `test`:
+
+    rails db:create
+
+Run Migrate:
+
+    rails db:migrate
+
+Run tests:
+
+    rspec
+
+##  Runnig the Application
+
+Instale a gem:
+
+    bundle install
+
+Crie as bases de dados para a aplicação - `development`  and  `test`:
+
+    rails db:create
+
+Run Migrate:
+
+    rails db:migrate
+    
+Run App:
+
+    rails s
+
+# Informações adicionais
