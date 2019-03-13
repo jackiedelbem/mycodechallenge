@@ -77,6 +77,17 @@ Run App:
 
     rails s
 
+Visualizar rotas disponíveis
+
+    rails routes
+
+
+Exemplos de buscas:
+
+- http://localhost:3000/api/v1/accounts - Lista todas as contas cadastradas
+- http://localhost:3000/api/v1/accounts/:id - Apresenta dados da conta (by id) **Atende ao requisito funcional - Consultar Saldo**
+
+
 # Informações adicionais
 
 - Para os teste utilizado o [rspec](https://github.com/rspec/rspec-rails)

@@ -6,7 +6,6 @@ class Account < ApplicationRecord
   validates :description, presence: true
 
   def add_account_entry(entry_type:, amount:)
-    amount = BigDecimal.new(amount)
     account_entry = account_entries.build(entry_type: entry_type, amount: amount, account: self)
     if amount > current_balance && account_entry.out?
       raise 'A conta de origem não possui saldo suficiente'
