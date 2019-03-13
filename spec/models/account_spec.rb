@@ -30,4 +30,39 @@ RSpec.describe Account, type: :model do
     end
 
   end
+
+  describe '#add_account_entry' do
+    subject(:account) { FactoryBot.build(:account, current_balance: 100) }
+    let(:amount) { 10 }
+
+    context 'when add an entry_type - in' do
+      let(:entry_type) { :in }
+      
+      subject { account.add_account_entry(entry_type: entry_type, amount: amount) }
+      it { is_expected.to be_a AccountEntry }
+      it { expect { subject }.to change { account.current_balance }.from(100).to(110) }
+      it { expect { subject }.to change { account.account_entries.to_a.count }.from(0).to(1) }
+    end
+
+    context 'when add an entry_type - out' do
+      let(:entry_type) { :out }
+ 
+      subject { account.add_account_entry(entry_type: entry_type, amount: amount) }
+      it { is_expected.to be_a AccountEntry }
+      it { expect { subject }.to change { account.current_balance }.from(100).to(90) }
+      it { expect { subject }.to change { account.account_entries.to_a.count }.from(0).to(1) }
+    end
+
+    context 'when entry_type is out and amount greater than the current balance' do
+      let(:entry_type) { :output }
+      let(:amount) { 110 }
+  
+      subject { account.add_account_entry(entry_type: entry_type, amount: amount) }
+      it { expect { subject }.to raise_error }
+    end
+  end
+
+
+
+
 end

@@ -20,8 +20,11 @@ Criar um sistema que gerenciar contas bancárias de clientes, permitindo fazer t
 
 Utilizado Ruby on Rails para implementação do desafio. Para a solução utilizamos dois modelos `User` e` BankAccount`.
 Relacionamentos:
--  **user**  has_many **bank_account**
--  **bank_account** belongs_to **user**
+-  **user**  has_many **account**
+-  **account** belongs_to **user** and has_many **account_entry**
+-  **account_entry** belongs_to **account**
+
+Basicamente permitindo que um usuário possua várias contas e que estas possuam diversas transações (entrada e saída)
 
 ## Init Database
 
