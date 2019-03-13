@@ -68,6 +68,10 @@ Crie as bases de dados para a aplicação - `development`  and  `test`:
 Run Migrate:
 
     rails db:migrate
+
+Executar o comando para popular o banco
+
+    rails db:seed
     
 Run App:
 

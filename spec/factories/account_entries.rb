@@ -3,6 +3,6 @@ FactoryBot.define do
     association :account
 
     entry_type { AccountEntry.entry_types.values.sample }
-    amount { Faker::Number.decimal(2, 3) }
+    amount { Faker::Number.decimal(2, 2) }
   end
 end
